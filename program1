@@ -31,7 +31,7 @@ loop:
   blt $t1,' ',check_end
   bgt $t1,'~',check_end
 #Define M
-  sub #t3, #t0, 10 #Calculate M
+  sub $t3, $t0, 10 #Calculate M
 
 #Convert character to base-N value
   blt $t1, $3, is_numeric
