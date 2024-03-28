@@ -36,13 +36,22 @@ loop:
 is_numeric:
   sub $t1, $t1, '0'
   j continue #Jump to continue loop
+
 is_uppercase:
   sub $t1, $t1, 'A' #Convert uppercase letter to base-N value
+
 continue:
+# Check even/odd index and accumulate sum 
   andi $t4, $s0, 1
   beqz $t4, add_odd
   add $s1, $s1, $t1 
   j loop 
+
 add_odd:
+  add $s2, $s2, $t1 #Add to odd sum 
+  j loop
+
+check_end:
+#Calculate and print G-H
 
 
