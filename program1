@@ -12,6 +12,12 @@
   li $v0, 4
   syscall
 
+#Read String
+  la $a0, message #Load address for storing string 
+  li $a1, 11
+  li $v0, 8
+  syscall
+
 #Initiliaze counters and sum variables 
   li $s0, 0
   li $s1, 0
