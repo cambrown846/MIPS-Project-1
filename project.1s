@@ -47,7 +47,7 @@ is_uppercase:
   sub $t1, $t1, 'A' #Convert uppercase letter to base-N value
 
 continue:
-# Check even/odd index and accumulate sum 
+#Check even/odd index and accumulate sum 
   andi $t4, $s0, 1
   beqz $t4, add_odd
   add $s1, $s1, $t1 
