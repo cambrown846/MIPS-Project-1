@@ -67,5 +67,8 @@ print_na:
   syscall 
   j exit 
 
-
+#Exit program 
+exit:
+  li $v0, 10
+  syscall
 
