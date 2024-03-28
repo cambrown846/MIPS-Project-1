@@ -3,3 +3,9 @@
   n_a: .asciiz "N/A\n"
   message: .space 11
 
+.text
+#Calculate N value
+  li $t0, 26 
+
+#Print prompt
+  la $a0, prompt
