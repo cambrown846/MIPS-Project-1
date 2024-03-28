@@ -9,3 +9,13 @@
 
 #Print prompt
   la $a0, prompt
+  li $v0, 4
+  syscall
+
+#Initiliaze counters and sum variables 
+  li $s0, 0
+  li $s1, 0
+  li $s2, 0
+#Check for null character before loop
+  lbu $t5, message($s0)
+  beqz $t5, exit #Exit if null character encountered 
