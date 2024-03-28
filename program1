@@ -17,5 +17,26 @@
   li $s1, 0
   li $s2, 0
 #Check for null character before loop
-  lbu $t5, message($s0)
+  lbu $t5, message($s0) #Load charcater string 
   beqz $t5, exit #Exit if null character encountered 
+loop:
+  lbu $t1, message($s0)
+
+  blt $t1,' ',check_end
+  bgt $t1,'~',check_end
+
+  sub #t3, #t0, 10
+
+  blt $t1, $3, is_numeric
+  addi $t1, $t1, -87
+  bge $t1, $t0, is_uppercase
+  j continue
+
+is_numeric:
+  sub $t1, $t1, '0'
+  j continue 
+is_uppercase:
+  sub $t1, $t1, 'A'
+
+continue:
+
