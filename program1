@@ -20,23 +20,24 @@
   lbu $t5, message($s0) #Load charcater string 
   beqz $t5, exit #Exit if null character encountered 
 loop:
-  lbu $t1, message($s0)
+  lbu $t1, message($s0) #Load character from string
 
   blt $t1,' ',check_end
   bgt $t1,'~',check_end
+#Define M
+  sub #t3, #t0, 10 #Calculate M
 
-  sub #t3, #t0, 10
-
+#Convert character to base-N value
   blt $t1, $3, is_numeric
   addi $t1, $t1, -87
   bge $t1, $t0, is_uppercase
-  j continue
+  j continue  
 
 is_numeric:
   sub $t1, $t1, '0'
-  j continue 
+  j continue #Jump to continue loop
 is_uppercase:
-  sub $t1, $t1, 'A'
-
+  sub $t1, $t1, 'A' #Convert uppercase letter to base-N value
 continue:
+
 
