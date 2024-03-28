@@ -53,12 +53,19 @@ add_odd:
 
 check_end:
 #Calculate and print G-H
-sub $t4, $s1, $s2 #G-H
-beqz $t4, print_na
-li $v0, 1
-move $a0, $t4
-syscall
-j exit 
+  sub $t4, $s1, $s2 #G-H
+  beqz $t4, print_na
+  li $v0, 1
+  move $a0, $t4
+  syscall
+  j exit 
+
+#Print "N/A"
+print_na:
+  la $a0, n_a
+  li $v0, 4
+  syscall 
+  j exit 
 
 
 
